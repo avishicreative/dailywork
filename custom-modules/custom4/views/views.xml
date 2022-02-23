@@ -1,0 +1,90 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="custom4_list">
+            <field name="name">custom4 list</field>
+            <field name="model">custom4.custom4</field>
+            <field name="arch" type="xml">
+                <tree>
+
+                    <field name="name"/>
+                    <field name="age"/>
+
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="custom4_form">
+            <field name="name">custom4 form</field>
+            <field name="model">custom4.custom4</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+
+                    </group>
+
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="custom4_inherited">
+            <field name="name">custom4 form</field>
+            <field name="model">custom4.custom4</field>
+            <field name="inherit_id" ref="custom4_form"/>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="custom4_action_window">
+            <field name="name">custom4 window</field>
+            <field name="res_model">custom4.custom4</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- server action to the one above -->
+
+        <record model="ir.actions.server" id="custom4_action_server">
+            <field name="name">custom4 server</field>
+            <field name="model_id" ref="model_custom4_custom4"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = {
+                "type": "ir.actions.act_window",
+                "view_mode": "tree,form",
+                "res_model": model._name,
+                }
+            </field>
+        </record>
+
+
+        <!-- Top menu item -->
+
+        <menuitem name="custom4" id="custom4_menu_root"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="Menu 1" id="custom4_menu_1" parent="custom4_menu_root"/>
+        <menuitem name="Menu 2" id="custom4_menu_2" parent="custom4_menu_root"/>
+        <!-- actions -->
+
+        <menuitem name="List" id="custom4_menu_1_list" parent="custom4_menu_1"
+                  action="custom4_action_window"/>
+        <menuitem name="Server to list" id="custom4" parent="custom4_menu_2"
+                  action="custom4_action_server"/>
+
+    </data>
+</odoo>

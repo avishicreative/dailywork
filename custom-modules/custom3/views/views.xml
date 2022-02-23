@@ -1,0 +1,105 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+      <record model="ir.ui.view" id="custom3_list">
+      <field name="name">custom3 list</field>
+      <field name="model">custom3.custom3</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="fname" widget='email' placeholder='email'/>
+          <field name="mobile"/>
+          <field name="value2"/>
+          <field name="address"/>
+          <field name="city"/>
+          <field name="gender"/>
+          <field name='image' widget='image'/>
+          <field name='choice' widget='radio'/>
+          <field name='lname'/>
+         </tree>
+      </field>
+    </record>
+
+
+
+  <record model="ir.ui.view" id="custom3_form">
+      <field name="name">custom3 form</field>
+      <field name="model">custom3.custom3</field>
+      <field name="arch" type="xml">
+        <form>
+        <group>
+          <field name="fname" widget='email' placeholder='email'/>
+          <field name="mobile"/>
+
+       </group>
+       <group>
+          <field name="address"/>
+          <field name="city"/>
+       </group>
+       <group>
+          <field name="gender"/>
+          <field name='image' widget='image'/>
+          <field name='choice' widget='radio'/>
+          <field name='lname'/>
+       </group>
+         </form>
+      </field>
+    </record>
+
+
+      <record model="ir.ui.view" id="custom3_inherited">
+          <field name="name">custom3 form</field>
+          <field name="model">custom3.custom3</field>
+          <field name="inherit_id" ref="custom3_form"/>
+          <field name="arch" type="xml">
+              <form>
+                  <group>
+                      <field name="company"/>
+                      <field name="post"/>
+
+                  </group>
+              </form>
+          </field>
+      </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="custom3_action_window">
+      <field name="name">custom3 window</field>
+      <field name="res_model">custom3.custom3</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="custom3_action_server">
+      <field name="name">custom3 server</field>
+      <field name="model_id" ref="model_custom3_custom3"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="custom3" id="custom3_menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="custom3_menu_1" parent="custom3_menu_root"/>
+    <menuitem name="Menu 2" id="custom3_menu_2" parent="custom3_menu_root"/>
+    <!-- actions -->
+
+    <menuitem name="List" id="custom3_menu_1_list" parent="custom3_menu_1"
+              action="custom3_action_window"/>
+    <menuitem name="Server to list" id="custom3" parent="custom3_menu_2"
+              action="custom3_action_server"/>
+
+  </data>
+</odoo>
