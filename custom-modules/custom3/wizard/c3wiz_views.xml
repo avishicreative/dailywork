@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+
+
+        <record model="ir.ui.view" id="c3wiz_form">
+            <field name="name">c3wiz form</field>
+            <field name="model">c3wiz.c3wiz</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="fname" placeholder='fname'/>
+                        <field name="lname"/>
+                    </group>
+                    <footer>
+                        <button name="pname" string="Print" type="object"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                        <button string="c1" class="btn-secondary" name="%(custom1.action_window)d" type="action"/>
+                    </footer>
+
+                </form>
+            </field>
+        </record>
+
+
+
+
+        <record model="ir.actions.act_window" id="c3wiz_action_window">
+            <field name="name">c3wiz window</field>
+            <field name="res_model">c3wiz.c3wiz</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+
+
+        </record>
+
+
+    </data>
+</odoo>

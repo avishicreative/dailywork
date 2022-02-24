@@ -26,7 +26,9 @@
     'data': [
         'security/ir.model.access.csv',
         'views/views.xml',
+        'wizard/c3wiz_views.xml',
         'views/templates.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [
