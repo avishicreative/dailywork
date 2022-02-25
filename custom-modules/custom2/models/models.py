@@ -5,7 +5,9 @@ from odoo import models, fields, api
 
 class custom2(models.Model):
      _name = 'custom2.custom2'
+     _inherit = ["mail.thread","mail.activity.mixin"]
      _description = 'custom2.custom2'
+
 
      name = fields.Char()
      value = fields.Integer()

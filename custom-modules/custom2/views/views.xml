@@ -14,6 +14,26 @@
             </field>
         </record>
 
+         <record model="ir.ui.view" id="custom2_form">
+            <field name="name">custom2 list</field>
+            <field name="model">custom2.custom2</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                    <field name="name"/>
+                    <field name="value"/>
+                    <field name="value2"/>
+                    </group>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
 
         <!-- actions opening views on models -->
 
