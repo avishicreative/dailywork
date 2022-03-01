@@ -4,17 +4,13 @@ from odoo import models, fields, api
 
 
 class custom2(models.Model):
-     _name = 'custom2.custom2'
-     _inherit = ["mail.thread","mail.activity.mixin"]
-     _description = 'custom2.custom2'
+    _name = 'custom2.custom2'
+    #_inherit = ["mail.thread", "mail.activity.mixin"]
+    _description = 'custom2.custom2'
+    _rec_name = "city"
 
 
-     name = fields.Char()
-     value = fields.Integer()
-     value2 = fields.Float(compute="_value_pc", store=True)
-     description = fields.Text()
+    air_name = fields.Char()
+    city = fields.Char()
+    type = fields.Char()
 
-     @api.depends('value')
-     def _value_pc(self):
-         for record in self:
-             record.value2 = float(record.value) / 100

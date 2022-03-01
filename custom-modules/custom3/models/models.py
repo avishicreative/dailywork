@@ -6,10 +6,18 @@ from odoo import models, fields, api
 class custom3(models.Model):
      _name = 'custom3.custom3'
      _description = 'custom3.custom3'
-     _inherit = 'custom1.custom1'
+     #_inherit = 'custom1.custom1'
+     _rec_name = "flightid"
 
-     company=fields.Char()
-     post=fields.Char()
+     flightid=fields.Integer()
+     departure_time=fields.Datetime()
+     arrival_time = fields.Datetime()
+     departure = fields.Many2one('custom2.custom2',string="departure")
+     arrival=fields.Many2one('custom2.custom2',string="arrival")
+     #company=fields.Char()
+     #post=fields.Char()
+     price=fields.Integer()
+
 
      def name1(self):
           return {

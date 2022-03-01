@@ -7,9 +7,11 @@
             <field name="arch" type="xml">
                 <tree>
 
-                    <field name="name"/>
-                    <field name="age"/>
-
+                    <field name="user_id"/>
+                    <field name="flight_id1"/>
+                    <field name="total"/>
+                    <field name="fly_to"/>
+                    <field name="fly_from"/>
                 </tree>
             </field>
         </record>
@@ -21,8 +23,11 @@
             <field name="arch" type="xml">
                 <form>
                     <group>
-                        <field name="name"/>
-                        <field name="age"/>
+                        <field name="user_id"/>
+                    <field name="flight_id1"/>
+                    <field name="total"/>
+                    <field name="fly_to"/>
+                    <field name="fly_from"/>
 
                     </group>
 
@@ -31,20 +36,20 @@
         </record>
 
 
-        <record model="ir.ui.view" id="custom4_inherited">
-            <field name="name">custom4 form</field>
-            <field name="model">custom4.custom4</field>
-            <field name="inherit_id" ref="custom4_form"/>
-            <field name="arch" type="xml">
-                <form>
-                    <group>
-                        <field name="name"/>
-                        <field name="age"/>
+<!--        <record model="ir.ui.view" id="custom4_inherited">-->
+<!--            <field name="name">custom4 form</field>-->
+<!--            <field name="model">custom4.custom4</field>-->
+<!--            <field name="inherit_id" ref="custom4_form"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form>-->
+<!--                    <group>-->
+<!--                        <field name="name"/>-->
+<!--                        <field name="age"/>-->
 
-                    </group>
-                </form>
-            </field>
-        </record>
+<!--                    </group>-->
+<!--                </form>-->
+<!--            </field>-->
+<!--        </record>-->
 
         <!-- actions opening views on models -->
 
